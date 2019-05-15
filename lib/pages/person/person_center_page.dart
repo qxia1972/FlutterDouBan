@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:douban_app/constant/constant.dart';
-import 'package:douban_app/widgets/image/heart_img_widget.dart';
+import 'package:doubanapp/constant/constant.dart';
+import 'package:doubanapp/widgets/image/heart_img_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:douban_app/constant/cache_key.dart';
-import 'package:douban_app/main.dart';
+import 'package:doubanapp/constant/cache_key.dart';
+import 'package:doubanapp/main.dart';
 typedef VoidCallback = void Function();
 
 ///个人中心
@@ -159,7 +159,7 @@ class _UseNetDataWidgetState extends State<UseNetDataWidget> {
   _getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      mSelectNetData = prefs.getBool(CacheKey.USE_NET_DATA) ?? false;
+      mSelectNetData = prefs.getBool(CacheKey.USE_NET_DATA) ?? true;
     });
   }
 
@@ -175,7 +175,7 @@ class _UseNetDataWidgetState extends State<UseNetDataWidget> {
         padding: const EdgeInsets.only(left: 10.0, right: 10.0),
         child: Row(
           children: <Widget>[
-            Text('书影音数据是否来自网络', style: TextStyle(color: Colors.black, fontSize: 17.0),),
+            Text('书影音数据是否来自网络', style: TextStyle(color: Colors.redAccent, fontSize: 17.0),),
             Expanded(
               child: Container(),
             ),

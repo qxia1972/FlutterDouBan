@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:douban_app/bean/subject_entity.dart';
-import 'package:douban_app/bean/top_item_bean.dart';
-import 'package:douban_app/http/http_request.dart';
+import 'package:doubanapp/bean/subject_entity.dart';
+import 'package:doubanapp/bean/top_item_bean.dart';
+import 'package:doubanapp/http/http_request.dart';
 import 'dart:math' as math;
 import 'package:palette_generator/palette_generator.dart';
-import 'package:douban_app/http/API.dart';
-import 'package:douban_app/http/mock_request.dart';
+import 'package:doubanapp/http/API.dart';
+import 'package:doubanapp/http/mock_request.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:douban_app/constant/cache_key.dart';
+import 'package:doubanapp/constant/cache_key.dart';
 
 class MovieRepository {
   var _request;
@@ -40,7 +40,7 @@ class MovieRepository {
 
   Future<MovieRepository> requestAPI() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool useNetData = prefs.getBool(CacheKey.USE_NET_DATA) ?? false;
+    bool useNetData = prefs.getBool(CacheKey.USE_NET_DATA) ?? true;
     if (useNetData) {
       _request = HttpRequest(API.BASE_URL);
     } else {

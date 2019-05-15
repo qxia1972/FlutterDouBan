@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:douban_app/util/screen_utils.dart';
+import 'package:doubanapp/util/screen_utils.dart';
 
 String url1 = 'https://flutterchina.club/';
 String url2 = 'http://flutterall.com/';
@@ -55,9 +55,9 @@ class _WebViewPageWidgetState extends State<WebViewPageWidget>
     selectStyle = TextStyle(fontSize: 18);
     unselectedStyle = TextStyle(fontSize: 18);
     _webviewReference.onUrlChanged.listen((String url) {
-        if(url != url1 || url != url2){
-          print("new Url=$url");
-        }
+      if(url != url1 || url != url2){
+        print("new Url=$url");
+      }
     });
   }
 
@@ -78,48 +78,48 @@ class _WebViewPageWidgetState extends State<WebViewPageWidget>
     return Container(
       child: SafeArea(
           child: Column(
-        children: <Widget>[
-          Row(
             children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: Container(),
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  padding:
-                      const EdgeInsets.only(top: 20.0),
-                  child: TabBar(
-                    tabs: list.map((item) => Text(item)).toList(),
-                    isScrollable: false,
-                    controller: tabController,
-                    indicatorColor: selectColor,
-                    labelColor: selectColor,
-                    labelStyle: selectStyle,
-                    unselectedLabelColor: unselectColor,
-                    unselectedLabelStyle: unselectedStyle,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    onTap: (selectIndex) {
-                      print('select=$selectIndex');
-                      this.selectIndex = selectIndex;
-                      print('_closed=$_closed');
-                      _webviewReference.reloadUrl(selectIndex == 0 ? url1 : url2);
-                    },
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(),
                   ),
-                ),
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      padding:
+                      const EdgeInsets.only(top: 20.0),
+                      child: TabBar(
+                        tabs: list.map((item) => Text(item)).toList(),
+                        isScrollable: false,
+                        controller: tabController,
+                        indicatorColor: selectColor,
+                        labelColor: selectColor,
+                        labelStyle: selectStyle,
+                        unselectedLabelColor: unselectColor,
+                        unselectedLabelStyle: unselectedStyle,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        onTap: (selectIndex) {
+                          print('select=$selectIndex');
+                          this.selectIndex = selectIndex;
+                          print('_closed=$_closed');
+                          _webviewReference.reloadUrl(selectIndex == 0 ? url1 : url2);
+                        },
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(),
+                  )
+                ],
               ),
               Expanded(
-                flex: 1,
-                child: Container(),
+                child: _WebViewWidget(selectIndex == 0 ? url1 : url2),
               )
             ],
-          ),
-          Expanded(
-            child: _WebViewWidget(selectIndex == 0 ? url1 : url2),
-          )
-        ],
-      )),
+          )),
       color: Colors.white,
     );
   }

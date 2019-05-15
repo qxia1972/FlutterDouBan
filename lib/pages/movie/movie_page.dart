@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:douban_app/pages/movie/title_widget.dart';
-import 'package:douban_app/pages/movie/today_play_movie_widget.dart';
-import 'package:douban_app/http/API.dart';
-import 'package:douban_app/pages/movie/hot_soon_tab_bar.dart';
-import 'package:douban_app/widgets/item_count_title.dart';
-import 'package:douban_app/widgets/subject_mark_image_widget.dart';
-import 'package:douban_app/bean/subject_entity.dart';
-import 'package:douban_app/bean/top_item_bean.dart';
-import 'package:douban_app/widgets/rating_bar.dart';
-import 'package:douban_app/constant/color_constant.dart';
+import 'package:doubanapp/pages/movie/title_widget.dart';
+import 'package:doubanapp/pages/movie/today_play_movie_widget.dart';
+import 'package:doubanapp/http/API.dart';
+import 'package:doubanapp/pages/movie/hot_soon_tab_bar.dart';
+import 'package:doubanapp/widgets/item_count_title.dart';
+import 'package:doubanapp/widgets/subject_mark_image_widget.dart';
+import 'package:doubanapp/bean/subject_entity.dart';
+import 'package:doubanapp/bean/top_item_bean.dart';
+import 'package:doubanapp/widgets/rating_bar.dart';
+import 'package:doubanapp/constant/color_constant.dart';
 import 'dart:math' as math;
-import 'package:douban_app/widgets/image/cache_img_radius.dart';
-import 'package:douban_app/constant/constant.dart';
-import 'package:douban_app/pages/movie/top_item_widget.dart';
-import 'package:douban_app/router.dart';
-import 'package:douban_app/http/http_request.dart';
+import 'package:doubanapp/widgets/image/cache_img_radius.dart';
+import 'package:doubanapp/constant/constant.dart';
+import 'package:doubanapp/pages/movie/top_item_widget.dart';
+import 'package:doubanapp/router.dart';
+import 'package:doubanapp/http/http_request.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:flutter/rendering.dart';
-import 'package:douban_app/repository/movie_repository.dart';
+import 'package:doubanapp/repository/movie_repository.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:douban_app/widgets/loading_widget.dart';
-
+import 'package:doubanapp/widgets/loading_widget.dart';
+import 'package:doubanapp/util/screen_utils.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 ///书影音-电影
 ///这个Widget整个布局较为复杂
 ///整个是使用CustomScrollView内存放各种Slivers构成
@@ -79,9 +80,11 @@ class _MoviePageState extends State<MoviePage>  with AutomaticKeepAliveClientMix
   @override
   Widget build(BuildContext context) {
     print('build movie_page');
-    if (itemW == null) {
-      imgSize = MediaQuery.of(context).size.width / 5 * 3;
-      itemW = (MediaQuery.of(context).size.width - 30.0 - 20.0) / 3;
+    if (itemW == null || imgSize <= 0) {
+      MediaQuery.of(context);
+      var w = MediaQuery.of(context).size.width;
+      imgSize = w / 5 * 3;
+      itemW = (w - 30.0 - 20.0) / 3;
       hotChildAspectRatio = (377.0 / 674.0);
       comingSoonChildAspectRatio = (377.0 / 742.0);
     }
