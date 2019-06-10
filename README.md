@@ -1,4 +1,10 @@
- # [博客地址flutterall.com: ](http://www.flutterall.com)
+![](https://github.com/kaina404/FlutterDouBan/blob/master-new/logo.png)
+
+[![GitHub stars](https://img.shields.io/github/stars/kaina404/FlutterDouBan.svg)](https://github.com/kaina404/FlutterDouBan/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/kaina404/FlutterDouBan.svg)](https://github.com/kaina404/FlutterDouBan/network)
+[![GitHub issues](https://img.shields.io/github/issues/kaina404/FlutterDouBan.svg)](https://github.com/kaina404/FlutterDouBan/issues) 
+
+# [博客地址flutterall.com](http://www.flutterall.com)
 真正的豆瓣客户端，90%还原豆瓣。首页、书影音、小组、市集及个人中心，一个不拉。项目持续更新中...
 # [演示预览(右键，新标签页面打开)](https://img.xuvip.top/douyademo.mp4)
 
@@ -18,12 +24,11 @@
     
 # 下载地址
 
+[Release版本下载地址](https://www.pgyer.com/Gt1H)
 
-[Release版本下载地址](https://github.com/kaina404/FlutterDouBan/blob/master-new/douya-release.apk)
+![扫一扫下载体验](https://github.com/kaina404/FlutterDouBan/blob/master-new/douya-release.png)
 
-![扫一扫下载体验](https://github.com/kaina404/FlutterDouBan/blob/master-new/download_qr.png)
 
-> 如果下载失败，可以使用[百度云下载地址](https://pan.baidu.com/s/16c7pT1vHudzyFNbP5lnXxg)
    
 
    
